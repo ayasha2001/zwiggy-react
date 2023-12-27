@@ -1,14 +1,17 @@
+import Cart from "./components/cart/Cart";
 import Header from "./components/layout/Header";
 import AvailableMeals from "./components/meals/AvailableMeals";
 import MealsSummary from "./components/meals/MealsSummary";
 
 function App() {
   return (
-    <div>
+    <>
+      <Cart />
       <Header />
-      <MealsSummary />
+      {/* <MealsSummary /> */}
       <AvailableMeals />
-    </div>
+      <Cart />
+    </>
   );
 }
 
