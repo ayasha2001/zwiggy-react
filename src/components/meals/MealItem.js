@@ -13,7 +13,7 @@ const MealItem = ({ meal }) => {
           <div className="price">{`$ ${price}`}</div>
         </div>
         <div>
-            <MealItemForm/>
+            <MealItemForm id={meal.id} meal={meal}/>
         </div>
       </div>
     </>

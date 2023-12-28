@@ -1,5 +1,5 @@
 import React from "react";
-import restroImg from "../assests/images-restro-header.jpeg";
+import restroImg from "../../assests/images-restro-header.jpeg";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
 
