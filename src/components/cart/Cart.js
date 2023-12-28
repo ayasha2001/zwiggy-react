@@ -10,8 +10,15 @@ const Cart = (props) => {
     <Modal onClose={props.onClose}>
       <h3>Cart Item</h3>
       <div>
-        {ctx.items.map((item)=>{
-          return <CartIem name={item.name} description={item.description} price={item.price}/>
+        {ctx.items.map((item) => {
+          return (
+            <CartIem
+              name={item.name}
+              quantity={item.quantity}
+              price={item.price}
+              item={item}
+            />
+          );
         })}
       </div>
       <div className="total">

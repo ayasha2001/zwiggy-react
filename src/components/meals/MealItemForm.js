@@ -1,10 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./MealItemForm.css";
 import CartContext from "../../store/cart-context";
 
 const MealItemForm = ({ id, meal }) => {
-  const [itemCount, setItemCount] = useState("");
+  const [itemCount, setItemCount] = useState(0);
   const cartCntx = useContext(CartContext);
+
+  useEffect(() => {
+    const existingItem = cartCntx.items.find((item) => item.id === id);
+    if (existingItem) {
+      setItemCount(existingItem.quantity);
+    }
+  }, [id, cartCntx.items]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -13,8 +20,8 @@ const MealItemForm = ({ id, meal }) => {
 
   const addItemHandler = (event) => {
     event.preventDefault();
-    if(itemCount.trim().length<=0){
-      alert("set quantity")
+    if (itemCount <= 0) {
+      alert("set quantity");
       return;
     }
     cartCntx.onItemAdd({ ...meal, quantity: itemCount });
